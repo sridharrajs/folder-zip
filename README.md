@@ -1,4 +1,4 @@
-# folder-zip
+# Folder-zip
 A fork of npm module [easy-zip](https://github.com/owenchong/easy-zip).
 
 # License

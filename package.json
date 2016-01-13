@@ -1,0 +1,26 @@
+{
+	"name": "folder-zip",
+	"version": "0.0.1",
+	"description": "A fork of easy-zip",
+	"main": "index.js",
+	"scripts": {
+		"test": "node test"
+	},
+	"keywords": [
+		"nodejs",
+		"zip",
+		"folder"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/sridharrajs/folder-zip"
+	},
+	"author": "sridharrajs <me@sridhar.co> (http://sridhar.co)",
+	"license": "GPL-3.0",
+	"dependencies": {
+		"async": "^1.5.2",
+		"buffer": "^4.3.0",
+		"path": "^0.12.7",
+		"util": "^0.10.3"
+	}
+}
