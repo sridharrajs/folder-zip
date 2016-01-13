@@ -25,16 +25,16 @@ FolderZip.prototype.addFile = function (file, filePath, callback) {
 		me = this,
 		rs = fs.createReadStream(filePath);
 
-	rs.on('data', function (data) {
-		datas.push(data);
-	})
-
-	rs.on('end', function () {
-		var buf = Buffer.concat(datas);
-		me.file(file, toArrayBuffer(buf), {base64: false, binary: true});
-		callback();
-	})
-}
+	rs
+		.on('data', function (data) {
+			datas.push(data);
+		})
+		.on('end', function () {
+			var buf = Buffer.concat(datas);
+			me.file(file, toArrayBuffer(buf), {base64: false, binary: true});
+			callback();
+		});
+};
 
 FolderZip.prototype.batchAdd = function (files, callback) {
 	var me = this;
@@ -42,7 +42,6 @@ FolderZip.prototype.batchAdd = function (files, callback) {
 		var source = item.source,
 			target = item.target,
 			appender = me,
-			folder = item.folder,
 			fileName = path.basename(target),
 			dirname = path.dirname(target);
 
@@ -63,7 +62,7 @@ FolderZip.prototype.batchAdd = function (files, callback) {
 	}, function () {
 		callback(me);
 	});
-}
+};
 
 FolderZip.prototype.zipFolder = function (folder, options, callback) {
 
@@ -88,7 +87,6 @@ FolderZip.prototype.zipFolder = function (folder, options, callback) {
 			file = files.shift();
 			sourcePath = path.join(folder, file);
 
-
 			if (options.copyToRoot) {
 				targetPath = path.join(file);
 			} else {
@@ -99,7 +97,6 @@ FolderZip.prototype.zipFolder = function (folder, options, callback) {
 					targetPath = path.join(rootFolder, file);
 				}
 			}
-
 
 			stat = fs.statSync(sourcePath);
 
@@ -128,7 +125,7 @@ FolderZip.prototype.zipFolder = function (folder, options, callback) {
 		});
 
 	}
-}
+};
 
 FolderZip.prototype.writeToResponse = function (response, attachmentName) {
 	attachmentName = attachmentName || new Date().getTime();
@@ -136,17 +133,17 @@ FolderZip.prototype.writeToResponse = function (response, attachmentName) {
 	response.setHeader('Content-Disposition', 'attachment; filename="' + attachmentName + '"');
 	response.write(this.generate({base64: false, compression: 'DEFLATE'}), "binary");
 	response.end();
-}
+};
 
 FolderZip.prototype.writeToFile = function (filePath, callback) {
 	var data = this.generate({base64: false, compression: 'DEFLATE'});
 	fs.writeFile(filePath, data, 'binary', callback);
-}
+};
 
 FolderZip.prototype.writeToFileSycn = function (filePath) {
 	var data = this.generate({base64: false, compression: 'DEFLATE'});
 	fs.writeFileSync(filePath, data, 'binary');
-}
+};
 
 FolderZip.prototype.clone = function () {
 	var newObj = new FolderZip();
@@ -156,6 +153,6 @@ FolderZip.prototype.clone = function () {
 		}
 	}
 	return newObj;
-}
+};
 
-exports.FolderZip = FolderZip;
+module.exports = FolderZip;
