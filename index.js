@@ -69,8 +69,8 @@ FolderZip.prototype.zipFolder = function (folder, options, callback) {
 	if (typeof options === 'function') {
 		callback = options;
 		options = {
-			copyToRoot: false,
-			rootFolderName: ''
+			excludeParentFolder: false,
+			parentFolderName: ''
 		};
 	}
 
@@ -87,12 +87,12 @@ FolderZip.prototype.zipFolder = function (folder, options, callback) {
 			file = files.shift();
 			sourcePath = path.join(folder, file);
 
-			if (options.copyToRoot) {
+			if (options.excludeParentFolder) {
 				targetPath = path.join(file);
 			} else {
-				var newRootFolderSpecified = options.rootFolderName ? true : false;
-				if (newRootFolderSpecified) {
-					targetPath = path.join(options.rootFolderName, file); //#1 copy on root
+				var parentFolderNameSpecified = options.parentFolderName ? true : false;
+				if (parentFolderNameSpecified) {
+					targetPath = path.join(options.parentFolderName, file);
 				} else {
 					targetPath = path.join(rootFolder, file);
 				}

@@ -40,10 +40,15 @@ A fork of npm module [easy-zip](https://github.com/owenchong/easy-zip).
 
 	
 **Zip a folder**  
+	
+	var options = {
+		excludeParentFolder: true, //Default : false. if true, the content will be zipped excluding parent folder.
+		parentFolderName: 'v1.0' //if specified, the content will be zipped, within the 'v1.0' folder
+	};
        
     //zip a folder and change folder destination name
 	var zip5 = new FolderZip();
-	zip5.zipFolder('../folder-zip', function(){
+	zip5.zipFolder('../folder-zip', options, function(){
 		zip5.writeToFile('folderall.zip');
 	});
 	
