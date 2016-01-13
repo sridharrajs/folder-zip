@@ -1,6 +1,6 @@
 {
 	"name": "folder-zip",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "A fork of easy-zip",
 	"main": "index.js",
 	"scripts": {

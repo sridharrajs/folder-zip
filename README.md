@@ -11,7 +11,8 @@ A fork of npm module [easy-zip](https://github.com/owenchong/easy-zip).
 	zip.file('hello.txt','Hello World！'); //add text
 	zip.writeToFile('text.zip');
 	        
-## **Add folder**  
+**Add folder**  
+
  	var zip2 = new FolderZip();
     var jsFolder = zip2.folder('js');
     jsFolder.file('hello.js','alert("hello world")');
@@ -47,14 +48,14 @@ A fork of npm module [easy-zip](https://github.com/owenchong/easy-zip).
 	});
 	
 	
-** Write data to http.Response **  
-	```
+**Write data to http.Response**  
+
 	   zip.writeToResponse(response, 'attachment.zip');
-	```
+
 	
 **Write to file sync**  
 
-	   zip.writeToFileSycn(filePath);
+    zip.writeToFileSycn(filePath);
 
 # License
 [GPL 3.0](http://www.gnu.org/licenses/gpl-3.0.en.html)
