@@ -16,7 +16,7 @@ A fork of npm module [easy-zip](https://github.com/owenchong/easy-zip).
  	var zip2 = new FolderZip();
     var jsFolder = zip2.folder('js');
     jsFolder.file('hello.js','alert("hello world")');
-    zip2.writeToFile('folder.zip');```
+    zip2.writeToFile('folder.zip');
 	
 **Add file**  
 
