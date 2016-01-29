@@ -1,7 +1,7 @@
 {
 	"name": "folder-zip",
-	"version": "0.0.3",
-	"description": "A fork of easy-zip",
+	"version": "0.0.4",
+	"description": "npm for enhanced folder zipping",
 	"main": "index.js",
 	"scripts": {
 		"test": "node test"
@@ -9,7 +9,12 @@
 	"keywords": [
 		"nodejs",
 		"zip",
-		"folder"
+		"folder",
+		"compression",
+		"node zip",
+		"easy zip",
+		"zip folder",
+		"folder zip"
 	],
 	"repository": {
 		"type": "git",
