@@ -37,7 +37,7 @@ A fork of npm module [easy-zip](https://github.com/owenchong/easy-zip) with **en
 
 	var folderZip = new FolderZip();
 	folderZip.addFile('main.js','index.js',function(){
-		folderZip.writeToFile('file.zip');
+		folderZip.writeToFileSync('file.zip');
 	});
 	
 **Add files in batches**  
@@ -60,7 +60,7 @@ A fork of npm module [easy-zip](https://github.com/owenchong/easy-zip) with **en
 	
 **Write to file sync**  
 
-    folderZip.writeToFileSycn(filePath);
+    folderZip.writeToFileSync(filePath);
 
 ## Tests
 

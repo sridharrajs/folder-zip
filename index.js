@@ -136,12 +136,12 @@ FolderZip.prototype.writeToResponse = function (response, attachmentName) {
 };
 
 FolderZip.prototype.writeToFile = function (filePath, callback) {
-	var data = this.generate({base64: false, compression: 'DEFLATE'});
+	var data = this.generate({base64: false});
 	fs.writeFile(filePath, data, 'binary', callback);
 };
 
-FolderZip.prototype.writeToFileSycn = function (filePath) {
-	var data = this.generate({base64: false, compression: 'DEFLATE'});
+FolderZip.prototype.writeToFileSync = function (filePath) {
+	var data = this.generate({base64: false});
 	fs.writeFileSync(filePath, data, 'binary');
 };
 
